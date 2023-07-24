@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/create',[FromController::class,'create']);
 Route::post('store',[FromController::class,'store'])->name('store.data');
+Route::get('send-otp',[FromController::class,'sendOtp'])->name('send-otp');

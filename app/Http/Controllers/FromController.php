@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TestRequest;
 use App\Jobs\SendMaliJob;
+use App\Jobs\SendOtpJob;
 use App\Mail\sendMail;
 use App\Models\Test;
 use Illuminate\Http\Request;
@@ -19,8 +20,17 @@ class FromController extends Controller
     {
         $test = Test::create($request->validated());
 
-       dispatch(new SendMaliJob((object)$test));
+        for($i=0; $i<50; $i++){
+
+            dispatch(new SendMaliJob((object)$test));
+
+        }
 
         return redirect('/create')->with('success', 'Form submitted successfully!');
+    }
+    //send otp for performance
+    public function sendOtp(){
+        dispatch(new SendOtpJob())->onQueue('high');
+        return redirect('/create')->with('success', 'Send OTP! check mail');
     }
 }

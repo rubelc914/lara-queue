@@ -61,6 +61,7 @@
                       <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{route('send-otp')}}" class="btn btn-info">Send OTP</a>
                   </form>
                     <!-- Create Post Form -->
             </div>

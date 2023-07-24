@@ -25,7 +25,7 @@ class TestRequest extends FormRequest
             'name'    => 'required',
             'email'   => 'required|email',
             'city'    => 'required',
-            'address' => 'required',
+            'address' => 'required'
         ];
     }
 }
